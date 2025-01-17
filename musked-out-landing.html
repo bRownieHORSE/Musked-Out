@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musked Out - Transform Your Feed!</title>
+    <style>
+      :root {
+        --primary: #ff6b6b;
+        --secondary: #4ecdc4;
+        --dark: #2c3e50;
+        --light: #f7f9fc;
+        --accent: #ffd93d;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "NEW!";
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--accent);
+        color: var(--dark);
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .features,
+      .how-it-works,
+      .testimonials,
+      .faq {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature-grid,
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .feature-card,
+      .step-card,
+      .testimonial-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover,
+      .step-card:hover,
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .comparison {
+        background: var(--dark);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 2rem auto;
+      }
+
+      .comparison-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .testimonials {
+        background: linear-gradient(45deg, var(--secondary), var(--primary));
+        color: white;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--dark);
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        font-size: 4rem;
+        color: var(--accent);
+        font-family: Georgia, serif;
+      }
+
+      .step-number {
+        background: var(--accent);
+        color: var(--dark);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .faq-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-item h3 {
+        color: var(--primary);
+        margin: 0 0 0.5rem 0;
+      }
+
+      .cta {
+        background: var(--accent);
+        color: var(--dark);
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        margin-top: 1rem;
+      }
+
+      .button:hover {
+        transform: scale(1.05);
+      }
+
+      .disclaimer {
+        font-size: 0.8rem;
+        max-width: 800px;
+        margin: 2rem auto;
+        opacity: 0.8;
+        font-style: italic;
+      }
+
+      .starburst {
+        position: absolute;
+        background: var(--accent);
+        border-radius: 50%;
+        padding: 2rem;
+        transform: rotate(-15deg);
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: rotate(-15deg) scale(1);
+        }
+        50% {
+          transform: rotate(-15deg) scale(1.05);
+        }
+        100% {
+          transform: rotate(-15deg) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>MUSKED OUT™</h1>
+      <p>
+        Is your social media feed suffering from Chronic Billionaire Syndrome?
+        Tired of algorithmic favoritism masquerading as "free speech"? Say
+        goodbye to unwanted content and hello to delightful corgi facts!
+      </p>
+    </section>
+
+    <section class="features">
+      <h2>BUT WAIT, THERE'S MORE!</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>🎯 TARGETED RELIEF</h3>
+          <p>
+            Our patented* algorithm specifically targets posts from the world's
+            most democratic** billionaire.
+          </p>
+          <small>*Not actually patented **Democracy levels may vary</small>
+        </div>
+        <div class="feature-card">
+          <h3>🐕 CORGI THERAPY</h3>
+          <p>
+            Replace unwanted content with scientifically proven*** corgi facts!
+          </p>
+          <small>***Science may or may not exist</small>
+        </div>
+        <div class="feature-card">
+          <h3>💰 FREE SPEECH (ACTUALLY FREE)</h3>
+          <p>
+            Unlike some platforms, we won't charge you $8 for basic features!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <h2>HOW IT WORKS</h2>
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>INSTALL</h3>
+          <p>
+            Add Musked Out™ to your browser faster than you can say "hostile
+            takeover"!
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>ACTIVATE</h3>
+          <p>
+            Our proprietary algorithm begins scanning for billionaire content
+            immediately*****!
+          </p>
+          <small
+            >*****No actual billionaires were scanned in this process</small
+          >
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>ENJOY</h3>
+          <p>Watch as your feed transforms into a corgi-filled paradise!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison">
+      <h2>BEFORE & AFTER</h2>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3>BEFORE MUSKED OUT™</h3>
+          <p>- Algorithmic manipulation</p>
+          <p>- Endless self-promotion</p>
+          <p>- "Free speech"****</p>
+          <small>****Terms and conditions apply</small>
+        </div>
+        <div class="comparison-card">
+          <h3>AFTER MUSKED OUT™</h3>
+          <p>- Delightful corgi facts</p>
+          <p>- More delightful corgi facts</p>
+          <p>- Even more corgi facts!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>REAL* TESTIMONIALS</h2>
+      <small>*May not actually be real</small>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>
+            "I used to see the same person's tweets 47 times a day. Now I know
+            that corgis can run at speeds of up to 40 km/h! Life-changing!"
+          </p>
+          <p><strong>- Sarah J., Definitely Real Person</strong></p>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "This extension has taught me more about corgis than four years of
+            veterinary school******!"
+          </p>
+          <p><strong>- Dr. Jekyll, Theoretical Veterinarian</strong></p>
+          <small>******Not an actual comparison to veterinary education</small>
+        </div>
+        <div class="testimonial-card">
+          <p>
+            "I installed this by accident while trying to buy Twitter Blue and
+            honestly? Best mistake ever."
+          </p>
+          <p><strong>- Anonymous Verified User</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <div class="faq-item">
+        <h3>Is this legal?</h3>
+        <p>
+          As legal as calling a social media platform "the digital town square"
+          while banning journalists! (But yes, it's just a browser extension)
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Will this affect my Twitter Blue subscription?</h3>
+        <p>
+          No, you can continue to pay $8 for features that used to be free. We
+          respect your choices!
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Are the corgi facts accurate?</h3>
+        <p>
+          More accurate than certain billionaire's tweets about taking companies
+          private!
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I start missing the billionaire content?</h3>
+        <p>
+          Side effects of Musked Out™ may include increased happiness, decreased
+          stress, and a sudden interest in Welsh dog breeds. If symptoms
+          persist, congratulations!
+        </p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>ORDER NOW!</h2>
+      <p>Available for Microsoft Edge - 100% FREE!</p>
+      <a href="#" class="button">Install Extension</a>
+      <p class="disclaimer">
+        Musked Out™ is a parody extension created for entertainment purposes.
+        Results may vary. Side effects may include increased knowledge about
+        corgis, decreased exposure to billionaire tweets, and a sudden urge to
+        pat small dogs. No billionaires were physically harmed in the making of this
+        extension, though some egos may have been bruised. Unlike certain social
+        media posts, we can confirm that no gameplay footage was misrepresented
+        in the making of this extension.
+      </p>
+    </section>
+  </body>
+</html>
