@@ -1,385 +1,682 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Musked Out - Transform Your Feed!</title>
-    <style>
-      :root {
-        --primary: #ff6b6b;
-        --secondary: #4ecdc4;
-        --dark: #2c3e50;
-        --light: #f7f9fc;
-        --accent: #ffd93d;
-      }
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>!!!BATH SKILLZ TREE!!! - EPIC WIN</title>
+  <style>
+    body {
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="20" height="20" fill="%23ff00ff"/><rect x="20" width="20" height="20" fill="%2300ffff"/><rect y="20" width="20" height="20" fill="%2300ffff"/><rect x="20" y="20" width="20" height="20" fill="%23ff00ff"/></svg>');
+      font-family: "Comic Sans MS", cursive;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes rotate3d {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+    
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: white;
+      border: 5px ridge gold;
+      padding: 15px;
+      box-shadow: 0 0 30px red, 0 0 50px blue, 0 0 70px lime;
+      position: relative;
+    }
+    
+    .sparkle {
+      position: absolute;
+      font-size: 30px;
+      animation: float 2s infinite;
+    }
+    
+    .sparkle1 { top: 10px; left: 10px; animation-delay: 0s; }
+    .sparkle2 { top: 10px; right: 10px; animation-delay: 0.5s; }
+    .sparkle3 { bottom: 10px; left: 10px; animation-delay: 1s; }
+    .sparkle4 { bottom: 10px; right: 10px; animation-delay: 1.5s; }
+    
+    h1 {
+      text-align: center;
+      background: linear-gradient(45deg, red, orange, yellow, lime, cyan, blue, purple, magenta, red);
+      background-size: 400% 400%;
+      animation: rainbow 3s linear infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 56px;
+      margin: 20px 0;
+      font-weight: bold;
+      font-style: italic;
+      transform: perspective(500px) rotateX(20deg);
+      text-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+      letter-spacing: 3px;
+    }
+    
+    .blink-fast {
+      animation: blink 0.5s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: purple;
+      font-size: 16px;
+      margin-bottom: 15px;
+      animation: shake 5s infinite;
+    }
+    
+    .fire-text {
+      background: linear-gradient(to top, red, orange, yellow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      display: inline-block;
+      animation: shake 0.3s infinite;
+    }
+    
+    .stats-box {
+      background: linear-gradient(135deg, yellow, orange, red, orange, yellow);
+      background-size: 400% 400%;
+      animation: rainbow 2s linear infinite;
+      border: 3px double red;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px red;
+    }
+    
+    .stat-row {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 8px;
+    }
+    
+    .stat {
+      background: white;
+      border: 3px groove blue;
+      padding: 5px 10px;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    
+    .points-display {
+      text-align: center;
+      font-size: 28px;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px yellow, -2px -2px cyan;
+    }
+    
+    .reset-btn {
+      display: block;
+      margin: 10px auto;
+      background: linear-gradient(to bottom, lime, green);
+      border: 4px outset darkgreen;
+      padding: 10px 25px;
+      font-family: "Comic Sans MS", cursive;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px lime;
+      color: white;
+      text-shadow: 2px 2px black;
+    }
+    
+    .reset-btn:hover {
+      animation: shake 0.5s infinite;
+    }
+    
+    .reset-btn:active {
+      border-style: inset;
+      transform: scale(0.95);
+    }
+    
+    .trees {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .tree {
+      border: 4px ridge;
+      padding: 10px;
+      background: white;
+      box-shadow: 0 0 15px;
+    }
+    
+    .tree.purple { 
+      border-color: purple; 
+      background: linear-gradient(135deg, lavender, plum, lavender);
+      box-shadow: 0 0 15px purple;
+    }
+    .tree.blue { 
+      border-color: blue; 
+      background: linear-gradient(135deg, lightblue, cyan, lightblue);
+      box-shadow: 0 0 15px blue;
+    }
+    .tree.pink { 
+      border-color: hotpink; 
+      background: linear-gradient(135deg, pink, hotpink, pink);
+      box-shadow: 0 0 15px hotpink;
+    }
+    .tree.green { 
+      border-color: green; 
+      background: linear-gradient(135deg, lightgreen, lime, lightgreen);
+      box-shadow: 0 0 15px green;
+    }
+    
+    .tree-title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      text-shadow: 2px 2px white;
+    }
+    
+    .tree.purple .tree-title { color: purple; }
+    .tree.blue .tree-title { color: blue; }
+    .tree.pink .tree-title { color: hotpink; }
+    .tree.green .tree-title { color: green; }
+    
+    .talent-row {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 12px;
+    }
+    
+    .talent {
+      width: 70px;
+      height: 70px;
+      border: 4px outset black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      font-weight: bold;
+      box-shadow: 3px 3px 0px black, 0 0 10px rgba(0,0,0,0.5);
+      transition: all 0.1s;
+    }
+    
+    .talent:hover {
+      transform: scale(1.05);
+    }
+    
+    .talent:active {
+      box-shadow: 1px 1px 0px black;
+      transform: translate(2px, 2px) scale(0.98);
+      border-style: inset;
+    }
+    
+    .talent.unlocked {
+      background: radial-gradient(circle, gold, yellow, orange);
+      animation: pulse 0.5s, glow 2s infinite;
+      border-color: gold;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px gold, 0 0 20px orange; }
+      50% { box-shadow: 0 0 20px gold, 0 0 40px orange; }
+    }
+    
+    .talent.locked {
+      background: linear-gradient(to bottom, gray, darkgray);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .talent.available {
+      background: linear-gradient(to bottom, white, lightgray);
+    }
+    
+    .talent-name {
+      font-size: 9px;
+      text-align: center;
+      margin-top: 3px;
+      line-height: 1;
+    }
+    
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: yellow;
+      border: 3px solid black;
+      padding: 10px;
+      width: 200px;
+      z-index: 100;
+      font-size: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 0 10px black;
+    }
+    
+    .talent:hover .tooltip {
+      display: block;
+      animation: float 1s infinite;
+    }
+    
+    .tooltip-title {
+      font-weight: bold;
+      color: red;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+    
+    .tooltip-desc {
+      margin-bottom: 5px;
+      color: black;
+    }
+    
+    .tooltip-stats {
+      color: green;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    
+    marquee {
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, purple, red);
+      background-size: 200% 100%;
+      animation: rainbow 3s linear infinite;
+      border: 3px double red;
+      padding: 8px;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      color: white;
+      text-shadow: 2px 2px black;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 12px;
+    }
+    
+    .counter {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .meme-section {
+      text-align: center;
+      margin: 15px 0;
+      padding: 15px;
+      background: linear-gradient(45deg, #ffccff, #ccffff, #ffffcc, #ffccff);
+      background-size: 400% 400%;
+      animation: rainbow 5s ease infinite;
+      border: 4px ridge purple;
+      box-shadow: 0 0 20px purple;
+    }
+    
+    .dancing-gif {
+      display: inline-block;
+      animation: dance 0.3s infinite alternate;
+      font-size: 30px;
+    }
+    
+    @keyframes dance {
+      0% { transform: translateY(0px) rotate(-5deg); }
+      100% { transform: translateY(-8px) rotate(5deg); }
+    }
+    
+    .spinning {
+      display: inline-block;
+      animation: spin 1s linear infinite;
+      font-size: 40px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .bounce {
+      display: inline-block;
+      animation: bounce 0.5s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .gif-container {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    
+    .rotating-text {
+      display: inline-block;
+      animation: rotate3d 3s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sparkle sparkle1">✨</div>
+    <div class="sparkle sparkle2">⭐</div>
+    <div class="sparkle sparkle3">💫</div>
+    <div class="sparkle sparkle4">🌟</div>
+    
+    <h1 class="blink-fast">BATH SKILLZ TREE</h1>
+    <div class="subtitle">
+      <span class="bounce">★</span>
+      <span class="bounce" style="animation-delay: 0.1s">★</span>
+      <span class="bounce" style="animation-delay: 0.2s">★</span>
+      made by xXx_BathMaster2007_xXx 
+      <span class="bounce" style="animation-delay: 0.3s">★</span>
+      <span class="bounce" style="animation-delay: 0.4s">★</span>
+      <span class="bounce" style="animation-delay: 0.5s">★</span>
+    </div>
+    
+    <div class="meme-section">
+      <div class="gif-container">
+        <span class="dancing-gif">🕺</span>
+        <span class="dancing-gif" style="animation-delay: 0.1s">💃</span>
+        <span style="font-size: 24px; font-weight: bold; color: red; text-shadow: 2px 2px blue;">
+          <span class="rotating-text">EPIC</span> BATH <span class="rotating-text">SIMULATOR</span>
+        </span>
+        <span class="dancing-gif" style="animation-delay: 0.2s">🕺</span>
+        <span class="dancing-gif" style="animation-delay: 0.3s">💃</span>
+      </div>
+      <div style="margin: 10px 0;">
+        <span class="spinning">🛁</span>
+        <span style="font-size: 14px; font-weight: bold; color: blue;">DO A BARREL ROLL!!!</span>
+        <span class="spinning" style="animation-delay: 0.5s; animation-direction: reverse;">🧼</span>
+        <span style="font-size: 14px; font-weight: bold; color: green;">ALL YOUR BATH ARE BELONG TO US</span>
+        <span class="spinning" style="animation-delay: 1s;">🚿</span>
+      </div>
+      <div style="font-size: 16px; color: purple; font-weight: bold;">
+        <span class="fire-text">OVER 9000</span> PEOPLE USE THIS!!!
+      </div>
+    </div>
+    
+    <div class="stats-box">
+      <div class="points-display">
+        <span class="bounce">☆</span> POINTS LEFT: <span id="points">20</span> / 20 <span class="bounce">☆</span>
+      </div>
+      <button class="reset-btn" onclick="resetAll()">
+        🔥 RESET ALL!!! (NOOB) 🔥
+      </button>
+      
+      <div class="stat-row">
+        <div class="stat">😎 Chill: <span id="relax">0</span></div>
+        <div class="stat">🛋️ Comfy: <span id="comfort">0</span></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat">⭐ Epic: <span id="luxury">0</span></div>
+        <div class="stat">⏰ Time: <span id="duration">0</span>m</div>
+      </div>
+    </div>
+    
+    <div class="trees">
+      <div class="tree purple">
+        <div class="tree-title">✿ SMELLY STUFF ✿</div>
+        <div id="tree-aroma"></div>
+      </div>
+      
+      <div class="tree blue">
+        <div class="tree-title">💧 H2O THINGS 💧</div>
+        <div id="tree-hydro"></div>
+      </div>
+      
+      <div class="tree pink">
+        <div class="tree-title">🎵 COOL JUNK 🎵</div>
+        <div id="tree-ambiance"></div>
+      </div>
+      
+      <div class="tree green">
+        <div class="tree-title">💚 CHILL ZONE 💚</div>
+        <div id="tree-relax"></div>
+      </div>
+    </div>
+    
+    <marquee scrollamount="10">
+      ★ ☆ ★ LEFT CLICK 2 ADD SKILLZ!!! RIGHT CLICK 2 UNDO!!! ITS LIEK WOW BUT WAY COOLER ROFLCOPTER ★ ☆ ★
+    </marquee>
+    
+    <div class="meme-section">
+      <div style="font-size: 20px; margin-bottom: 10px;">
+        <span class="bounce">😂</span>
+        <span style="color: blue; font-weight: bold;">LIEK DIS IF U CRY EVERTIM</span>
+        <span class="bounce" style="animation-delay: 0.2s">😭</span>
+      </div>
+      <div style="font-size: 16px; color: purple;">
+        <span class="bounce">🐱</span> i can haz bath points??? 
+        <span class="bounce" style="animation-delay: 0.3s">🐱</span>
+      </div>
+      <div style="font-size: 14px; color: red; margin-top: 10px; font-weight: bold;">
+        THE CAKE IS A LIE!!! 🎂
+      </div>
+      <div style="font-size: 14px; color: green; margin-top: 5px;">
+        <span class="spinning">🔥</span> THIS IS SPARTA!!! <span class="spinning" style="animation-direction: reverse;">🔥</span>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div style="color: red; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        <span class="blink-fast">⚠️</span> WARNING: MAY CAUSE PRUNE FINGERZ <span class="blink-fast">⚠️</span>
+      </div>
+      <b>RULES:</b> u need 2 get talents in order DUH<br>
+      if its GRAY u need the 1 above it first DUMMY!!!<br><br>
+      
+      <div style="background: black; color: lime; padding: 10px; border: 2px solid lime; margin: 10px 0; font-family: Courier;">
+        &gt; SYSTEM.EXE HAS PERFORMED AN ILLEGAL BATH<br>
+        &gt; PRESS ANY KEY TO CONTINUE
+      </div>
+      
+      <i>best viewed in Internet Explorer 6.0 on Windows XP</i><br>
+      <span style="font-size: 10px;">optimized for 800x600 resolution • 56k modem recommended</span><br><br>
+      
+      <div style="margin-top: 10px;">
+        <span style="color: blue; text-decoration: underline; cursor: pointer;">Email me</span> | 
+        <span style="color: blue; text-decoration: underline; cursor: pointer;">Sign my guestbook</span> | 
+        <span style="color: blue; text-decoration: underline; cursor: pointer;">Add me on MySpace</span> |
+        <span style="color: blue; text-decoration: underline; cursor: pointer;">Download my cursor pack</span>
+      </div>
+    </div>
+    
+    <div class="counter">
+      <img src="data:image/gif;base64,R0lGODlhFAAUAKIAAP///wAAAICAgMDAwIAAAP8AAP///wAAACH5BAEAAAcALAAAAAAUABQAAAM2eLrc/jDKSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9AoAAA7" alt="counter">
+      <span style="font-weight: bold;">You are visitor #<span id="visitor">1337</span></span>
+      <span class="fire-text" style="font-size: 14px;">PWNED!!! HAXOR!!!</span>
+    </div>
+    
+    <div style="text-align: center; margin-top: 15px; font-size: 11px; background: black; color: lime; padding: 10px; border: 2px solid lime;">
+      © 2007 BathMaster Inc. | Powered by Angelfire | <span class="blink-fast">UNDER CONSTRUCTION</span> 🚧
+    </div>
+    
+    <div style="text-align: center; margin-top: 10px;">
+      <img src="data:image/gif;base64,R0lGODlhPAAQAKIAAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAIALAAAAAA8ABAAAANLGLrc/jA+QKQNa8p8MsAQh+Dxld0moqDXsSYrxb5wTN90jdI4H+/6DwwJhUIgsPKRTCqfUGlFSq1ar1isVjLher9gsVjMGwAA7wQAOw==" alt="fire">
+      <span style="font-weight: bold;">THIS SITE BEST VIEWED WITH:</span>
+      <img src="data:image/gif;base64,R0lGODlhPAAQAKIAAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAIALAAAAAs8ABAAAANLGLrc/jA+QKQNa8p8MsAQh+Dxld0moqDXsSYrxb5wTN90jdI4H+/6DwwJhUIgsPKRTCqfUGlFSq1ar1isVjLher9gsVjMGwAA7wQAOw==" alt="fire">
+    </div>
+  </div>
 
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--light);
-        color: var(--dark);
-        line-height: 1.6;
-      }
-
-      .hero {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: white;
-        padding: 4rem 2rem;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::after {
-        content: "NEW!";
-        position: absolute;
-        top: 20px;
-        right: -30px;
-        background: var(--accent);
-        color: var(--dark);
-        padding: 5px 40px;
-        transform: rotate(45deg);
-        font-weight: bold;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .features,
-      .how-it-works,
-      .testimonials,
-      .faq {
-        padding: 4rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .feature-grid,
-      .step-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .feature-card,
-      .step-card,
-      .testimonial-card {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .feature-card:hover,
-      .step-card:hover,
-      .testimonial-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .comparison {
-        background: var(--dark);
-        color: white;
-        padding: 4rem 2rem;
-        text-align: center;
-      }
-
-      .comparison-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 2rem auto;
-      }
-
-      .comparison-card {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        border-radius: 10px;
-      }
-
-      .testimonials {
-        background: linear-gradient(45deg, var(--secondary), var(--primary));
-        color: white;
-      }
-
-      .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .testimonial-card {
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--dark);
-        position: relative;
-      }
-
-      .testimonial-card::before {
-        content: '"';
-        position: absolute;
-        top: -20px;
-        left: 20px;
-        font-size: 4rem;
-        color: var(--accent);
-        font-family: Georgia, serif;
-      }
-
-      .step-number {
-        background: var(--accent);
-        color: var(--dark);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-
-      .faq-item {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .faq-item h3 {
-        color: var(--primary);
-        margin: 0 0 0.5rem 0;
-      }
-
-      .cta {
-        background: var(--accent);
-        color: var(--dark);
-        padding: 4rem 2rem;
-        text-align: center;
-      }
-
-      .button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: transform 0.3s ease;
-        margin-top: 1rem;
-      }
-
-      .button:hover {
-        transform: scale(1.05);
-      }
-
-      .disclaimer {
-        font-size: 0.8rem;
-        max-width: 800px;
-        margin: 2rem auto;
-        opacity: 0.8;
-        font-style: italic;
-      }
-
-      .starburst {
-        position: absolute;
-        background: var(--accent);
-        border-radius: 50%;
-        padding: 2rem;
-        transform: rotate(-15deg);
-        font-weight: bold;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: rotate(-15deg) scale(1);
+  <script>
+    const TOTAL_POINTS = 20;
+    let talents = {};
+    
+    const allTalents = [
+      { id: 'lavender', name: 'Flower Smell', tree: 'aroma', row: 0, max: 3, stats: { r: 10, c: 5, l: 0, d: 0 }, desc: 'smellz like grandmas garden' },
+      { id: 'eucalyptus', name: 'Minty Thing', tree: 'aroma', row: 0, max: 3, stats: { r: 8, c: 7, l: 0, d: 0 }, desc: 'clears ur nose wen u cant breathe' },
+      { id: 'bathbomb', name: 'Fizzy Ballz', tree: 'aroma', row: 1, req: 'lavender', max: 2, stats: { r: 5, c: 10, l: 15, d: 0 }, desc: 'the colorful explodie things LOL' },
+      { id: 'oilblend', name: 'Slippery Stuff', tree: 'aroma', row: 1, req: 'eucalyptus', max: 2, stats: { r: 12, c: 8, l: 10, d: 0 }, desc: 'makes water feel weird but good' },
+      { id: 'aromaultimate', name: 'SMELL KING', tree: 'aroma', row: 2, req: 'bathbomb', max: 1, stats: { r: 20, c: 15, l: 25, d: 5 }, desc: 'UR THE BOSS OF ALL SMELLS NOW!!!' },
+      
+      { id: 'temp', name: 'Hot Water', tree: 'hydro', row: 0, max: 3, stats: { r: 5, c: 15, l: 0, d: 0 }, desc: 'make it not 2 hot or 2 cold u no' },
+      { id: 'bubbles', name: 'BUBBLES!!!1!', tree: 'hydro', row: 0, max: 3, stats: { r: 8, c: 10, l: 5, d: 0 }, desc: 'LIKE A MILLION BUBBLES EVERYWHERE' },
+      { id: 'jets', name: 'Water Blaster', tree: 'hydro', row: 1, req: 'temp', max: 2, stats: { r: 15, c: 20, l: 15, d: 0 }, desc: 'the shootie water things' },
+      { id: 'salts', name: 'Magic Salt', tree: 'hydro', row: 1, req: 'bubbles', max: 2, stats: { r: 10, c: 12, l: 8, d: 3 }, desc: 'not 4 eating tho lol' },
+      { id: 'hydroultimate', name: 'WATER GOD', tree: 'hydro', row: 2, req: 'jets', max: 1, stats: { r: 25, c: 30, l: 20, d: 10 }, desc: 'u control all the water like a ninja' },
+      
+      { id: 'candles', name: 'Fire Sticks', tree: 'ambiance', row: 0, max: 3, stats: { r: 12, c: 5, l: 10, d: 0 }, desc: 'put fire around ur bath (safe ones)' },
+      { id: 'music', name: 'MP3 Player', tree: 'ambiance', row: 0, max: 3, stats: { r: 10, c: 8, l: 5, d: 0 }, desc: 'play ur fav songsss' },
+      { id: 'dimmer', name: 'Turn Off Lite', tree: 'ambiance', row: 1, req: 'candles', max: 2, stats: { r: 8, c: 10, l: 15, d: 0 }, desc: 'lights r 2 brite turn them OFF' },
+      { id: 'sounds', name: 'Nature MP3s', tree: 'ambiance', row: 1, req: 'music', max: 2, stats: { r: 15, c: 10, l: 8, d: 5 }, desc: 'rain n ocean sounds from kazaa' },
+      { id: 'ambianceultimate', name: 'COOL EMPEROR', tree: 'ambiance', row: 2, req: 'dimmer', max: 1, stats: { r: 30, c: 20, l: 25, d: 8 }, desc: 'UR BATHROOM = COOLEST PLACE EVER' },
+      
+      { id: 'pillow', name: 'Head Cushion', tree: 'relax', row: 0, max: 3, stats: { r: 5, c: 20, l: 5, d: 5 }, desc: 'squishy thing 4 ur hed dont hit the tub' },
+      { id: 'wine', name: 'Drinky Drink', tree: 'relax', row: 0, max: 3, stats: { r: 15, c: 5, l: 15, d: 0 }, desc: 'brig juice or soda w/e u want' },
+      { id: 'reading', name: 'Book Thing', tree: 'relax', row: 1, req: 'pillow', max: 2, stats: { r: 10, c: 15, l: 10, d: 15 }, desc: 'read stuff DONT DROP IT IN THE WATER' },
+      { id: 'skincare', name: 'Green Face Goo', tree: 'relax', row: 1, req: 'wine', max: 2, stats: { r: 12, c: 15, l: 20, d: 0 }, desc: 'weird green stuff u put on ur face' },
+      { id: 'relaxultimate', name: 'MEGA CHILL', tree: 'relax', row: 2, req: 'reading', max: 1, stats: { r: 35, c: 25, l: 30, d: 20 }, desc: 'U BECOME A RAISIN BUT U DONT CARE ROFL' }
+    ];
+    
+    function getSpent() {
+      return Object.values(talents).reduce((a, b) => a + b, 0);
+    }
+    
+    function updateUI() {
+      document.getElementById('points').textContent = TOTAL_POINTS - getSpent();
+      
+      let stats = { r: 0, c: 0, l: 0, d: 0 };
+      Object.entries(talents).forEach(([id, rank]) => {
+        const t = allTalents.find(x => x.id === id);
+        if (t && rank > 0) {
+          stats.r += t.stats.r * rank;
+          stats.c += t.stats.c * rank;
+          stats.l += t.stats.l * rank;
+          stats.d += t.stats.d * rank;
         }
-        50% {
-          transform: rotate(-15deg) scale(1.05);
-        }
-        100% {
-          transform: rotate(-15deg) scale(1);
-        }
+      });
+      
+      document.getElementById('relax').textContent = stats.r;
+      document.getElementById('comfort').textContent = stats.c;
+      document.getElementById('luxury').textContent = stats.l;
+      document.getElementById('duration').textContent = stats.d;
+      
+      renderTrees();
+    }
+    
+    function canUnlock(t) {
+      if (!t.req) return true;
+      return talents[t.req] > 0;
+    }
+    
+    function addPoint(id) {
+      const t = allTalents.find(x => x.id === id);
+      const rank = talents[id] || 0;
+      
+      if (getSpent() < TOTAL_POINTS && rank < t.max && canUnlock(t)) {
+        talents[id] = rank + 1;
+        updateUI();
       }
-    </style>
-  </head>
-  <body>
-    <section class="hero">
-      <h1>MUSKED OUT™</h1>
-      <p>
-        Is your social media feed suffering from Chronic Billionaire Syndrome?
-        Tired of algorithmic favoritism masquerading as "free speech"? Say
-        goodbye to unwanted content and hello to delightful corgi facts!
-      </p>
-    </section>
-
-    <section class="features">
-      <h2>BUT WAIT, THERE'S MORE!</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>🎯 TARGETED RELIEF</h3>
-          <p>
-            Our patented* algorithm specifically targets posts from the world's
-            most democratic** billionaire.
-          </p>
-          <small>*Not actually patented **Democracy levels may vary</small>
-        </div>
-        <div class="feature-card">
-          <h3>🐕 CORGI THERAPY</h3>
-          <p>
-            Replace unwanted content with scientifically proven*** corgi facts!
-          </p>
-          <small>***Science may or may not exist</small>
-        </div>
-        <div class="feature-card">
-          <h3>💰 FREE SPEECH (ACTUALLY FREE)</h3>
-          <p>
-            Unlike some platforms, we won't charge you $8 for basic features!
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-it-works">
-      <h2>HOW IT WORKS</h2>
-      <div class="step-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>INSTALL</h3>
-          <p>
-            Add Musked Out™ to your browser faster than you can say "hostile
-            takeover"!
-          </p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>ACTIVATE</h3>
-          <p>
-            Our proprietary algorithm begins scanning for billionaire content
-            immediately*****!
-          </p>
-          <small
-            >*****No actual billionaires were scanned in this process</small
-          >
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>ENJOY</h3>
-          <p>Watch as your feed transforms into a corgi-filled paradise!</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="comparison">
-      <h2>BEFORE & AFTER</h2>
-      <div class="comparison-grid">
-        <div class="comparison-card">
-          <h3>BEFORE MUSKED OUT™</h3>
-          <p>- Algorithmic manipulation</p>
-          <p>- Endless self-promotion</p>
-          <p>- "Free speech"****</p>
-          <small>****Terms and conditions apply</small>
-        </div>
-        <div class="comparison-card">
-          <h3>AFTER MUSKED OUT™</h3>
-          <p>- Delightful corgi facts</p>
-          <p>- More delightful corgi facts</p>
-          <p>- Even more corgi facts!</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials">
-      <h2>REAL* TESTIMONIALS</h2>
-      <small>*May not actually be real</small>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <p>
-            "I used to see the same person's tweets 47 times a day. Now I know
-            that corgis can run at speeds of up to 40 km/h! Life-changing!"
-          </p>
-          <p><strong>- Sarah J., Definitely Real Person</strong></p>
-        </div>
-        <div class="testimonial-card">
-          <p>
-            "This extension has taught me more about corgis than four years of
-            veterinary school******!"
-          </p>
-          <p><strong>- Dr. Jekyll, Theoretical Veterinarian</strong></p>
-          <small>******Not an actual comparison to veterinary education</small>
-        </div>
-        <div class="testimonial-card">
-          <p>
-            "I installed this by accident while trying to buy Twitter Blue and
-            honestly? Best mistake ever."
-          </p>
-          <p><strong>- Anonymous Verified User</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq">
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
-      <div class="faq-item">
-        <h3>Is this legal?</h3>
-        <p>
-          As legal as calling a social media platform "the digital town square"
-          while banning journalists! (But yes, it's just a browser extension)
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3>Will this affect my Twitter Blue subscription?</h3>
-        <p>
-          No, you can continue to pay $8 for features that used to be free. We
-          respect your choices!
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3>Are the corgi facts accurate?</h3>
-        <p>
-          More accurate than certain billionaire's tweets about taking companies
-          private!
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3>What if I start missing the billionaire content?</h3>
-        <p>
-          Side effects of Musked Out™ may include increased happiness, decreased
-          stress, and a sudden interest in Welsh dog breeds. If symptoms
-          persist, congratulations!
-        </p>
-      </div>
-    </section>
-
-    <section class="cta">
-      <h2>ORDER NOW!</h2>
-      <p>Available for Microsoft Edge - 100% FREE!</p>
-      <a href="#" class="button">Install Extension</a>
-      <p class="disclaimer">
-        Musked Out™ is a parody extension created for entertainment purposes.
-        Results may vary. Side effects may include increased knowledge about
-        corgis, decreased exposure to billionaire tweets, and a sudden urge to
-        pat small dogs. No billionaires were physically harmed in the making of this
-        extension, though some egos may have been bruised. Unlike certain social
-        media posts, we can confirm that no gameplay footage was misrepresented
-        in the making of this extension.
-      </p>
-    </section>
-  </body>
+    }
+    
+    function removePoint(id) {
+      const rank = talents[id] || 0;
+      if (rank > 0) {
+        talents[id] = rank - 1;
+        if (talents[id] === 0) delete talents[id];
+        updateUI();
+      }
+    }
+    
+    function resetAll() {
+      if (confirm('R U SURE BRO??? u will lose EVRYTHING like a total n00b!!!')) {
+        talents = {};
+        updateUI();
+      }
+    }
+    
+    function renderTrees() {
+      ['aroma', 'hydro', 'ambiance', 'relax'].forEach(tree => {
+        const container = document.getElementById('tree-' + tree);
+        container.innerHTML = '';
+        
+        for (let row = 0; row <= 2; row++) {
+          const rowDiv = document.createElement('div');
+          rowDiv.className = 'talent-row';
+          
+          allTalents.filter(t => t.tree === tree && t.row === row).forEach(t => {
+            const rank = talents[t.id] || 0;
+            const canLearn = canUnlock(t);
+            const isMaxed = rank >= t.max;
+            
+            const div = document.createElement('div');
+            div.className = 'talent';
+            
+            if (rank > 0) {
+              div.classList.add('unlocked');
+            } else if (canLearn) {
+              div.classList.add('available');
+            } else {
+              div.classList.add('locked');
+            }
+            
+            div.onclick = () => addPoint(t.id);
+            div.oncontextmenu = (e) => {
+              e.preventDefault();
+              removePoint(t.id);
+            };
+            
+            div.innerHTML = `
+              <div style="font-size: 18px">${rank}/${t.max}</div>
+              <div class="talent-name">${t.name}</div>
+              <div class="tooltip">
+                <div class="tooltip-title">${t.name}</div>
+                <div class="tooltip-desc">${t.desc}</div>
+                <div class="tooltip-stats">
+                  ${t.stats.r > 0 ? '+' + t.stats.r + ' Chill<br>' : ''}
+                  ${t.stats.c > 0 ? '+' + t.stats.c + ' Comfy<br>' : ''}
+                  ${t.stats.l > 0 ? '+' + t.stats.l + ' Epic<br>' : ''}
+                  ${t.stats.d > 0 ? '+' + t.stats.d + ' Time' : ''}
+                </div>
+              </div>
+            `;
+            
+            rowDiv.appendChild(div);
+          });
+          
+          container.appendChild(rowDiv);
+        }
+      });
+    }
+    
+    setInterval(() => {
+      document.getElementById('visitor').textContent = Math.floor(Math.random() * 9000) + 1000;
+    }, 3000);
+    
+    updateUI();
+  </script>
+</body>
 </html>
